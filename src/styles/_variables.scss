@@ -1,0 +1,59 @@
+// src/styles/_variables.scss
+// --- 1. FUNDAMENTAL DEFINITIONS ---
+
+// Core Gradient & Background
+// --- THE FIX IS HERE ---
+// Using your hand-picked 5-layer color sequence.
+$gradient-center: #250d49;    // Lightest (Layer 1)
+$gradient-mid-1:  #250c4b;    // (Layer 2)
+$gradient-mid-2:  #180736;    // (Layer 3)
+$gradient-mid-3:  #0e0322;    // (Layer 4)
+$gradient-edge:   #080114;    // Darkest (Layer 5)
+// --- END OF FIX ---
+
+$primary-dark-purple: $gradient-edge; // The fallback color is the new darkest color
+
+// Typography
+$text-primary: #ffffff;
+$text-secondary: #d0cce0;
+$text-black: #000000;
+
+
+// --- 2. ROLE-BASED & BRAND DEFINITIONS ---
+
+// Brand & Interactive Colors
+$brand-primary: #45385c;
+$accent-bright: #a983e9;
+
+
+// --- 3. DERIVED COMPONENT-SPECIFIC VARIABLES ---
+
+// Buttons
+$button-bg: $brand-primary;
+$button-text: $text-secondary;
+$button-bg-hover: $text-primary;
+$button-text-hover: $text-black;
+
+// Form Inputs
+$input-bg: transparent;
+$input-border: lighten($brand-primary, 15%);
+$input-border-focus: $accent-bright;
+
+// Card & Glow Effects
+$card-border: lighten($brand-primary, 20%);
+$glow-color: rgba($accent-bright, 0.4);
+
+
+// --- 4. SIZING & SPACING ---
+$font-family-base: 'Inter', sans-serif;
+$border-radius-sm: 8px;
+$border-radius-md: 20px;
+$border-radius-lg: 50px;
+
+$breakpoints: (
+  'sm': 576px,  // Small devices (landscape phones)
+  'md': 768px,  // Medium devices (tablets)
+  'lg': 992px,  // Large devices (desktops)
+  'xl': 1200px, // Extra large devices (large desktops)
+  'xxl': 1400px // Extra extra large devices (wider desktops)
+);

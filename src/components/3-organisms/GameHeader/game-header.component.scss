@@ -1,0 +1,17 @@
+// src/components/3-organisms/GameHeader/game-header.component.scss
+.game-header {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__logo {
+    // This is to match the slight blur/glow on the logo in the image
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+}

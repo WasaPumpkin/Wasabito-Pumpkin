@@ -1,0 +1,22 @@
+// src/components/1-atoms/Input/input.component.scss
+@use '../../../styles/variables' as *;
+
+.custom-input {
+  background-color: $input-bg;
+  border: 2px solid $input-border;
+  color: $text-primary;
+  border-radius: $border-radius-lg;
+  padding: 12px 20px;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-color: $input-border-focus;
+  }
+}

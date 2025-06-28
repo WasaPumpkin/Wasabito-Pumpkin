@@ -1,0 +1,26 @@
+// src/components/3-organisms/CreateGameForm/create-game-form.component.scss
+@use '../../../styles/mixins' as *;
+
+.create-game-container {
+  @include flex-center(column);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.create-game-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.create-game-main {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+}
+
+.create-game-form {
+  @include flex-center(column);
+  gap: 1.5rem;
+  width: 100%;
+}

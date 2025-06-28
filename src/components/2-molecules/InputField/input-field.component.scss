@@ -1,0 +1,13 @@
+// src/components/2-molecules/InputField/input-field.component.scss
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+
+  &__label {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    color: #d0cce0;
+  }
+}
