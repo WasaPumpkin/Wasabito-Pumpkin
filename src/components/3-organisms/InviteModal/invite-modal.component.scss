@@ -21,6 +21,7 @@
   color: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+
 }
 
 .invite-modal-header {
@@ -33,7 +34,7 @@
 
   h3 {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     font-weight: 600;
   }
 
@@ -59,6 +60,9 @@
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 3rem;
+  
+  
+
 }
 
 .invite-link-input {
@@ -76,7 +80,7 @@
 
 .copy-button {
   background-color: white !important;
-  // UPDATED: Using the new variable for the button text color
+  cursor: pointer;
   color: v.$modal-body-bg !important;
   font-weight: 600;
   border: none !important;
@@ -84,5 +88,5 @@
   padding: 1rem 2.5rem !important;
   align-self: center;
   min-width: 180px;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }

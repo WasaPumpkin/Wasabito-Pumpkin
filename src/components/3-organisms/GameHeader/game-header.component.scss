@@ -10,7 +10,7 @@
   left: 0;
 
   &__logo {
-    // This is to match the slight blur/glow on the logo in the image
+  
     opacity: 0.6;
     filter: blur(1px);
   }
@@ -20,7 +20,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2rem;
+  font-size: 3.0rem;
   font-weight: bold;
   color: white;
 }
