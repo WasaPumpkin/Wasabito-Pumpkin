@@ -14,4 +14,45 @@
     opacity: 0.6;
     filter: blur(1px);
   }
+ // --- ADD THIS ---
+ &__room-name {
+  // This positions the name in the absolute center of the header
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+// --- AND THIS ---
+&__user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+
+  // Styles for the avatar circle
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #a37ff0; // Light purple
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  // You can style the invite button here if it's not a generic Button component
+  .invite-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+  }
+}
 }

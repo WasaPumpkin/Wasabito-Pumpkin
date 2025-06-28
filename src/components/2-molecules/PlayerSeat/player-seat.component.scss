@@ -1,0 +1,42 @@
+// src/components/2-molecules/PlayerSeat/player-seat.component.scss
+// src/components/2-molecules/PlayerSeat/player-seat.component.scss
+
+.player-seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; // Space between avatar and name
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #a37ff0; // A light purple from your image
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+
+  &__name {
+    color: white; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+  }
+
+  &__crown {
+    font-size: 1rem;
+    line-height: 1; // Helps with vertical alignment
+
+    // Special style for the spectator's faded crown
+    &--spectator {
+      opacity: 0.6;
+    }
+  }
+}

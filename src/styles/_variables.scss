@@ -1,17 +1,14 @@
 // src/styles/_variables.scss
+
 // --- 1. FUNDAMENTAL DEFINITIONS ---
 
 // Core Gradient & Background
-// --- THE FIX IS HERE ---
-// Using your hand-picked 5-layer color sequence.
-$gradient-center: #250d49;    // Lightest (Layer 1)
-$gradient-mid-1:  #250c4b;    // (Layer 2)
-$gradient-mid-2:  #180736;    // (Layer 3)
-$gradient-mid-3:  #0e0322;    // (Layer 4)
-$gradient-edge:   #080114;    // Darkest (Layer 5)
-// --- END OF FIX ---
-
-$primary-dark-purple: $gradient-edge; // The fallback color is the new darkest color
+$gradient-center: #250d49;
+$gradient-mid-1:  #250c4b;
+$gradient-mid-2:  #180736;
+$gradient-mid-3:  #0e0322;
+$gradient-edge:   #080114;
+$primary-dark-purple: $gradient-edge;
 
 // Typography
 $text-primary: #ffffff;
@@ -42,6 +39,13 @@ $input-border-focus: $accent-bright;
 // Card & Glow Effects
 $card-border: lighten($brand-primary, 20%);
 $glow-color: rgba($accent-bright, 0.4);
+$player-card-border: #BA65FF;
+
+// --- NEW SECTION ---
+// Modal
+$modal-header-bg: #6429cd;
+$modal-body-bg: #1f0d3f;
+// --- END OF NEW SECTION ---
 
 
 // --- 4. SIZING & SPACING ---
@@ -51,9 +55,9 @@ $border-radius-md: 20px;
 $border-radius-lg: 50px;
 
 $breakpoints: (
-  'sm': 576px,  // Small devices (landscape phones)
-  'md': 768px,  // Medium devices (tablets)
-  'lg': 992px,  // Large devices (desktops)
-  'xl': 1200px, // Extra large devices (large desktops)
-  'xxl': 1400px // Extra extra large devices (wider desktops)
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
 );

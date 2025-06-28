@@ -46,3 +46,10 @@
  
 }
 
+// --- ADD STYLES FOR THE SELECTED STATE ---
+.poker-card--selected {
+  transform: translateY(-10px); // Keep it elevated
+  background-color: #BA65FF; // Use a highlight color
+  color: white;
+  box-shadow: 0 5px 20px rgba(#BA65FF, 0.4);
+}
