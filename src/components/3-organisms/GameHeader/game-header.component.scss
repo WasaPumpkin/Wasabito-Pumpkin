@@ -1,38 +1,71 @@
 // src/components/3-organisms/GameHeader/game-header.component.scss
-.game-header {
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
-  &__logo {
-  
-    opacity: 0.6;
-    filter: blur(1px);
-  }
- // --- ADD THIS ---
- &__room-name {
-  // This positions the name in the absolute center of the header
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3.0rem;
-  font-weight: bold;
-  color: white;
+// ==========================================================
+// UNIVERSAL LAYOUT (Works for all screen sizes)
+// ==========================================================
+
+.game-header {
+  // 1. The header is now the positioning context for all its children.
+  position: relative;
+  width: 100%;
+  height: 90px; // Give it a fixed height to vertically center children within
+  display: flex; // We still use flexbox to center the one remaining child
+  align-items: center;
+  z-index: 20;
 }
 
-// --- AND THIS ---
-&__user-info {
+// 2. The logo is taken out of the normal flow and pinned to the left.
+.game-header__logo-placeholder {
+  position: absolute;
+  left: 2rem;
+  opacity: 0.8;
+}
+
+// 3. The user info is also taken out of the normal flow and pinned to the right.
+.game-header__user-info {
+  position: absolute;
+  right: 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  color: white;
+  gap: 1.5rem;
+}
 
-  // Styles for the avatar circle
+// 4. The room name is now the ONLY child left in the flexbox flow.
+.game-header__room-name {
+  width: 100%; // It expands to fill the entire width of the header...
+  text-align: center; // ...which allows its text to be perfectly centered.
+  
+  // Add padding to prevent long names from going *under* the absolute elements.
+  padding: 0 80px; 
+  
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: v.$text-primary;
+  
+  // These prevent long text from breaking the layout.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Styles for the avatar button are universal
+.user-avatar-button {
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+  
+  &:not(:disabled):hover .user-avatar {
+    box-shadow: 0 0 10px v.$accent-bright;
+  }
+
   .user-avatar {
     display: flex;
     align-items: center;
@@ -40,19 +73,58 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #a37ff0; // Light purple
+    background-color: v.$accent-bright;
     font-weight: bold;
     font-size: 1rem;
-  }
-  
-  // You can style the invite button here if it's not a generic Button component
-  .invite-button {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
+    transition: box-shadow 0.2s ease;
   }
 }
+
+// ===================================================================
+// --- RESPONSIVE OVERRIDES FOR SMALLER DEVICES ---
+// ===================================================================
+@media (max-width: #{map-get(v.$breakpoints, 'md') - 1px}) {
+  .game-header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0.5rem 1rem;
+    position: relative;
+  }
+
+  .game-header__logo-placeholder {
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+  }
+
+  .game-header__room-name {
+    font-size: 1.6rem;
+    padding: 0 40px;
+    text-align: center;
+  }
+
+  .game-header__user-info {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; // 👈 this aligns only the avatar to the right
+    gap: 0.4rem;
+  }
+
+  .game-header__user-info .button-atom {
+    align-self: center; // 👈 this keeps the button centered under the avatar
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .user-avatar-button .user-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
 }

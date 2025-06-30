@@ -4,19 +4,33 @@ import { useAppDispatch } from '../../../hooks/redux-hooks';
 import { createGame } from '../../../store/slices/gameSlice';
 import Button from '../../1-atoms/Button/button.component';
 import InputField from '../../2-molecules/InputField/input-field.component';
-import './create-game-form.component.scss';
 import Logo from '../../1-atoms/Logo/logo.component';
+import { validateName } from '../../../utils/validators';
+import './create-game-form.component.scss';
 
 const CreateGameForm: React.FC = () => {
-  const [gameName, setGameName] = useState('');
   const dispatch = useAppDispatch();
+
+  const [gameName, setGameName] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setGameName(newName);
+    setError(validateName(newName));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (gameName.trim()) {
-      dispatch(createGame(gameName.trim()));
+    const validationError = validateName(gameName);
+    if (validationError) {
+      setError(validationError);
+      return;
     }
+    dispatch(createGame(gameName));
   };
+
+  const isButtonDisabled = !!error || gameName.trim() === '';
 
   return (
     <div className="create-game-container">
@@ -28,11 +42,12 @@ const CreateGameForm: React.FC = () => {
           <InputField
             label="Nombra la partida"
             value={gameName}
-            onChange={(e) => setGameName(e.target.value)}
+            onChange={handleNameChange}
             required
             autoFocus
+            error={error}
           />
-          <Button type="submit" disabled={!gameName.trim()}>
+          <Button type="submit" disabled={isButtonDisabled}>
             Crear partida
           </Button>
         </form>

@@ -13,9 +13,7 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
   const [copied, setCopied] = useState(false);
   const gameName = useAppSelector((state) => state.game.gameName);
 
-  // --- FIX IS HERE ---
-  // This now creates the correct link for your development environment.
-  // window.location.origin will be "http://localhost:5173" while you are developing.
+
   const inviteUrl = `${window.location.origin}/${gameName}`;
 
   const handleCopyClick = () => {

@@ -1,5 +1,4 @@
 // src/styles/_variables.scss
-
 // --- 1. FUNDAMENTAL DEFINITIONS ---
 
 // Core Gradient & Background
@@ -20,7 +19,15 @@ $text-black: #000000;
 
 // Brand & Interactive Colors
 $brand-primary: #45385c;
-$accent-bright: #a983e9;
+$accent-bright: #a983e9; // <-- DEFINITION is now first.
+
+
+// --- NEW SECTION: GENERIC ALIASES ---
+// This block now comes AFTER the definitions above.
+$background: $primary-dark-purple; // This now works.
+$text-light: $text-primary;         // This now works.
+$accent: $accent-bright;            // This now works, because $accent-bright is defined above.
+// --- END OF NEW SECTION ---
 
 
 // --- 3. DERIVED COMPONENT-SPECIFIC VARIABLES ---
@@ -41,11 +48,9 @@ $card-border: lighten($brand-primary, 20%);
 $glow-color: rgba($accent-bright, 0.4);
 $player-card-border: #BA65FF;
 
-// --- NEW SECTION ---
 // Modal
 $modal-header-bg: #6429cd;
 $modal-body-bg: #1f0d3f;
-// --- END OF NEW SECTION ---
 
 
 // --- 4. SIZING & SPACING ---
@@ -59,5 +64,11 @@ $breakpoints: (
   'md': 768px,
   'lg': 992px,
   'xl': 1200px,
-  'xxl': 1400px
+  'xxl': 1400px,
+  'iphone-se': 375px,
+  'iphone-12': 390px,
+  'galaxy-s8': 360px,
+  'ipad-mini': 768px,
+  'ipad-air': 820px,
+  'ipad-pro': 1024px
 );

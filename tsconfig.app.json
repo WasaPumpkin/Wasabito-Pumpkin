@@ -17,6 +17,7 @@
 
     /* ADD THIS "types" ARRAY */
     "types": ["vite/client", "vitest/globals"],
+   
 
     /* Linting */
     "strict": true,
